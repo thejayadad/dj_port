@@ -1,0 +1,18 @@
+
+{%block content%}
+
+
+<div class="jumbotron">
+    <h2>Please Login</h2>
+    <h3>(Must be an approved user, email thejayadad@gmail.com)</h3>
+    {% if form.errors %}
+    <p>Something went wrong, try again</p>
+    {% endif %}
+    <form action="{% url 'blog:login'}" method="POST">
+        {% csrf_token%}
+
+        <input type="submit" class="btn btn-primary" value="Login">
+        <input type="hidden" name="text" value="{{next}}">
+    </form>
+</div>
+{% endblock %}
